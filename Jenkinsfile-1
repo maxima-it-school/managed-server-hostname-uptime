@@ -4,7 +4,6 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
@@ -13,11 +12,6 @@ pipeline {
         stage("First step") {
             steps {
                 sh 'ssh strong444b@185.72.146.159 -p 2222 \'hostname\''
-            }
-        }
-        stage("Second step") {
-            steps {
-                sh 'ssh strong444b@185.72.146.159 -p 2222 \'uptime\''
             }
         }
     }
