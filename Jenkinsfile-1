@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh strong444b@185.72.146.159 \'hostname\''
+                sh 'ssh strong444b@185.72.146.159 -p 2222 \'hostname\''
             }
         }
     }
